@@ -3,70 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Định dạng bảng với CSS</title>
+    <title>Menu Dropdown Hàng Ngang</title>
     <style>
+        /* 1. Thiết lập font chữ chung và xóa margin/padding mặc định */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
         body {
-            font-family: Arial, Tahoma, sans-serif;
-            padding: 30px;
-            background-color: #f8fafc;
+            padding: 50px;
+            background-color: #f4f6f9;
         }
 
-        h2 {
-            color: #1e293b;
-            margin-bottom: 20px;
+        /* 2. Định dạng vùng chứa trình đơn chính (#menu) */
+        #menu {
+            height: 40px;
+            background-color: #333333;
+            border-radius: 4px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid black;
+        #menu ul {
+            list-style: none;
         }
 
-        table, th, td {
-            border: 1px solid black;
+        /* 3. Định dạng cho các phần tử trong danh sách (li cấp 1 xếp ngang) */
+        #menu > ul > li {
+            float: left;
         }
 
-        th {
-            height: 50px;
+        #menu li {
+            position: relative; /* Giúp menu con căn chỉnh theo menu cha */
+            list-style: none;
+        }
+
+        /* 4. Định dạng các liên kết trong trình đơn */
+        #menu a {
+            display: block;
+            width: 140px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 15px;
+            background-color: #333333;
+            transition: background-color 0.2s ease;
+        }
+
+        /* 5. Đổi màu nền sang màu đỏ khi rê chuột qua liên kết */
+        #menu li:hover > a,
+        #menu a:hover {
+            background-color: #cc0000;
+        }
+
+        /* 6. Định dạng danh sách con (trình đơn thả xuống 2 cấp) */
+        #menu ul ul {
+            position: absolute;
+            top: 40px; /* Xuất hiện ngay phía dưới menu cha */
+            left: 0;
+            visibility: hidden; /* Mặc định ẩn danh sách con */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        #menu ul ul li {
+            float: none; /* Menu con xếp dọc */
+        }
+
+        #menu ul ul a {
             text-align: left;
-            background-color: #333;
-            color: white;
-            padding: 12px 15px;
+            padding-left: 15px;
+            border-top: 1px solid #444444;
         }
 
-        td {
-            padding: 12px 15px;
-            background-color: #f2f2f2;
-            color: #333;
-            vertical-align: middle;
-        }
-
-        tr:hover td {
-            background-color: #e5e7eb;
+        /* 7. Hiển thị menu con khi rê chuột qua mục chọn cha */
+        #menu li:hover > ul {
+            visibility: visible;
         }
     </style>
 </head>
 <body>
 
-    <h2>Danh sách học viên</h2>
-
-    <table>
-        <tr>
-            <th>Họ tên</th>
-            <th>Tuổi</th>
-            <th>Lớp</th>
-        </tr>
-        <tr>
-            <td>Nguyễn Văn A</td>
-            <td>20</td>
-            <td>Web</td>
-        </tr>
-        <tr>
-            <td>Trần Thị B</td>
-            <td>21</td>
-            <td>Web</td>
-        </tr>
-    </table>
+    <div id="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li>
+                <a href="#">Khóa học &#9662;</a>
+                <!-- Trình đơn con cấp 2 -->
+                <ul>
+                    <li><a href="#">HTML &amp; CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">React.js</a></li>
+                    <li><a href="#">Python</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Dịch vụ &#9662;</a>
+                <!-- Trình đơn con cấp 2 -->
+                <ul>
+                    <li><a href="#">Thiết kế web</a></li>
+                    <li><a href="#">Lập trình app</a></li>
+                    <li><a href="#">Hosting / Tên miền</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
 
 </body>
 </html>
