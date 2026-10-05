@@ -1,41 +1,61 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lịch họp công ty</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hướng dẫn tạo Fixed Menu</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .main {
+            padding: 16px;
+            margin-top: 50px; /* bù lại chiều cao của navbar cố định */
+            height: 1500px;   /* Dùng để hiển thị thanh cuộn */
+        }
+    </style>
 </head>
 <body>
-    <h1>Lịch họp công ty</h1>
 
-    <table border="1">
-        <tr>
-            <th>Ngày</th>
-            <th>Giờ</th>
-            <th>Nội dung cuộc họp</th>
-        </tr>
-        <tr>
-            <td rowspan="2">Thứ Hai</td>
-            <td>08:30 - 09:30</td>
-            <td>Họp giao ban đầu tuần</td>
-        </tr>
-        <tr>
-            <td>14:00 - 15:30</td>
-            <td>Báo cáo tiến độ dự án</td>
-        </tr>
-        <tr>
-            <td rowspan="2">Thứ Ba</td>
-            <td>09:00 - 10:30</td>
-            <td>Họp nội bộ phòng Kỹ thuật</td>
-        </tr>
-        <tr>
-            <td>15:00 - 16:30</td>
-            <td>Đánh giá chất lượng sản phẩm</td>
-        </tr>
-        <tr>
-            <td>Thứ Tư</td>
-            <td colspan="2">08:00 - 17:00: Hội thảo chiến lược công ty (kéo dài cả ngày)</td>
-        </tr>
-    </table>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </div>
+
+    <div class="main">
+        <h1>Fixed Top Menu</h1>
+        <h2>Scroll this page to see the effect</h2>
+        <h2>The navigation bar will stay at the top of the page while scrolling</h2>
+        <p>Some text some text some text some text...</p>
+        <p>Some text some text some text some text...</p>
+    </div>
+
 </body>
 </html>
