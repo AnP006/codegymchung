@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Dropdown Dọc</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            padding: 40px;
+            background-color: #f4f6f9;
+        }
+
+        #menu {
+            width: 140px;
+        }
+
+        #menu ul {
+            list-style: none;
+        }
+
+        #menu li {
+            list-style: none;
+            position: relative;
+            width: 100px;
+            height: 30px;
+            padding: 0 20px;
+            background-color: black;
+            line-height: 30px;
+            cursor: pointer;
+            border-bottom: 1px solid #333;
+        }
+
+        #menu li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            font-size: 14px;
+        }
+
+        #menu li:hover {
+            background-color: #444444;
+        }
+
+        /* Định dạng danh sách menu con */
+        #menu li ul {
+            position: absolute;
+            top: 0;
+            left: 140px; /* Tổng width(100px) + padding trái phải (20px*2) = 140px */
+            visibility: hidden;
+        }
+
+        /* Hiển thị danh sách con khi đưa con trỏ chuột qua li cha */
+        #menu li:hover > ul {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li>
+                <a href="#">Sản phẩm &#9656;</a>
+                <ul>
+                    <li><a href="#">Điện thoại</a></li>
+                    <li><a href="#">Máy tính</a></li>
+                    <li><a href="#">Phụ kiện</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Dịch vụ &#9656;</a>
+                <ul>
+                    <li><a href="#">Bảo hành</a></li>
+                    <li><a href="#">Cài đặt</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
